@@ -26,8 +26,8 @@ if (isset($_GET['login'])){
 		} elseif ($openid->mode == 'cancel') {
 			echo 'User has canceled authentication!';
 		} else {
-			if($openid->validate()) { 
-				$id = $openid->identity;
+			if($openid->data){
+				$id = $openid->data['openid_identity'];
 				$ptn = "/^https?:\/\/steamcommunity\.com\/openid\/id\/(7[0-9]{15,25}+)$/";
 				preg_match($ptn, $id, $matches);
 				
